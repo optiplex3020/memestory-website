@@ -5,12 +5,12 @@ export default function Footer() {
 
   const footerLinks = {
     Légal: [
-      { label: 'Politique de confidentialité', href: '/privacy' },
-      { label: 'Conditions d\'utilisation', href: '/terms' },
+      { label: 'Politique de confidentialité', href: '/privacy', external: false },
+      { label: 'Conditions d\'utilisation', href: '/terms', external: false },
     ],
     Support: [
-      { label: 'Contact', href: '/contact' },
-      { label: 'FAQ', href: '/faq' },
+      { label: 'Contact', href: '/contact', external: false },
+      { label: 'FAQ', href: '/faq', external: false },
     ],
     Communauté: [
       { label: 'Twitter', href: 'https://twitter.com/memestory', external: true },
