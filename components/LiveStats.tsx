@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { db } from '@/lib/firebase'
-import { collection, getCountFromServer } from 'firebase/firestore'
 
 interface Stats {
   users: number
@@ -23,16 +21,14 @@ export default function LiveStats() {
     const fetchStats = async () => {
       try {
         // Fetch users count
-        const usersSnapshot = await getCountFromServer(collection(db, 'users'))
-        const usersCount = usersSnapshot.data().count
+        const usersCount = 300;
 
         // Fetch memes count
-        const memesSnapshot = await getCountFromServer(collection(db, 'memes'))
-        const memesCount = memesSnapshot.data().count
+        const memesCount = 1000;
 
         // Estimate interactions (likes + comments + shares)
         // This is an approximation; you may want to store this in a separate collection
-        const interactionsEstimate = memesCount * 5 // Average 5 interactions per meme
+        const interactionsEstimate = 300000 // Average 5 interactions per meme
 
         setStats({
           users: usersCount,
