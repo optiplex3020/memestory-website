@@ -63,21 +63,21 @@ export default function Screenshots() {
               className="group"
             >
               {/* Phone mockup */}
-              <div className="glass-effect rounded-3xl p-4 aspect-[9/16] relative overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${screenshot.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
-                <div className="relative h-full flex items-center justify-center">
-                  {screenshot.image ? (
-                    <Image
-                      src={screenshot.image}
-                      alt={screenshot.title}
-                      fill
-                      className="object-cover rounded-2xl"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                  ) : (
-                    <div className="text-6xl opacity-50">💌</div>
-                  )}
-                </div>
+              <div className="relative rounded-3xl aspect-[9/16] overflow-hidden shadow-2xl">
+                {screenshot.image ? (
+                  <Image
+                    src={screenshot.image}
+                    alt={screenshot.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                ) : (
+                  <div className="glass-effect h-full flex items-center justify-center">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${screenshot.color} opacity-20`} />
+                    <div className="relative text-6xl opacity-50">💌</div>
+                  </div>
+                )}
               </div>
 
               {/* Description */}
