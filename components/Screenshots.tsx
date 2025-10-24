@@ -1,27 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const screenshots = [
   {
     title: 'Feed Principal',
     description: 'Découvre un flux infini de mèmes et vidéos',
     color: 'from-primary to-secondary',
+    image: '/assets/HomeScreen.PNG',
   },
   {
     title: 'Explore',
     description: 'Trouve les contenus tendances et catégories',
     color: 'from-secondary to-accent',
+    image: '/assets/Explorer.PNG',
   },
   {
     title: 'Profil',
     description: 'Personnalise ton profil et gère tes contenus',
     color: 'from-accent to-primary',
+    image: '/assets/Profile.PNG',
   },
   {
     title: 'Messages',
     description: 'Discute avec tes amis en temps réel',
     color: 'from-primary to-accent',
+    image: null, // Placeholder en attendant la 4ème image
   },
 ]
 
@@ -61,7 +66,17 @@ export default function Screenshots() {
               <div className="glass-effect rounded-3xl p-4 aspect-[9/16] relative overflow-hidden">
                 <div className={`absolute inset-0 bg-gradient-to-br ${screenshot.color} opacity-20 group-hover:opacity-30 transition-opacity`} />
                 <div className="relative h-full flex items-center justify-center">
-                  <div className="text-6xl opacity-50">{['🎭', '🔥', '👤', '💌'][index]}</div>
+                  {screenshot.image ? (
+                    <Image
+                      src={screenshot.image}
+                      alt={screenshot.title}
+                      fill
+                      className="object-cover rounded-2xl"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  ) : (
+                    <div className="text-6xl opacity-50">💌</div>
+                  )}
                 </div>
               </div>
 
